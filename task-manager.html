@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>国税预约后台管理系统</title>
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="plugins/bootstrap-toastr/toastr.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap-table/bootstrap-table.css">
+    <link rel="stylesheet" href="plugins/bootstrap-star/css/star-rating.css">
+    <link rel="stylesheet" href="plugins/My97DatePicker/skin/WdatePicker.css">
+    <link rel="stylesheet" href="assets/css/siderbar-left.css">
+    <link rel="stylesheet" href="assets/css/web.css">
+</head>
+<body class="body-width">
+<div class="header-top-wrap clearfix header">
+    <div class="logo-img">
+        <img src="assets/img/logo.png" alt="" style="height: 50px;">
+    </div>
+    <ul class="header-ul " >
+        <li class="active"><a href="task-manager.html"><i class="glyphicon glyphicon-list"></i> 业务管理</a></li>
+        <li > <a href="evaluate-manager.html"><i class="glyphicon glyphicon-star"></i> 评价统计</a></li>
+        <li ><a href="user-manager.html"><i class="glyphicon glyphicon-user"></i> 人员管理</a></li>
+        <li ><a href="terminal-manager.html"><i class="glyphicon glyphicon-th-large"></i> 调试界面</a></li>
+        <li ><a href="system-manager.html"><i class="glyphicon glyphicon-cog"></i> 系统设置</a></li>
+    </ul>
+    <ul class="nav navbar-nav  pull-right person-info">
+        <!--<li><a href="#">Link</a></li>-->
+        <li class="dropdown ">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员-李元华 <span class="caret"></span></a>
+            <ul class="dropdown-menu pull-right">
+                <li><a href="login.html">注销</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+<div class="main-container">
+    <div class="left-side sidebar">
+        <ul class="nav nav-list">
+            <li title="记录查询"  class=" active">
+                <a href="#" class="">
+                    <i class="fa fa-bars"></i>记录查询
+                </a>
+            </li>
+            <li title="业务处理" >
+                <a href="#" class="">
+                    <i class="fa fa-file-text-o"></i> 业务处理
+                </a>
+            </li>  <li title="数据统计" >
+                <a href="#" class="">
+                    <i class="fa fa-pencil-square "></i> 数据统计
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="right-side">
+        <!--记录查询-->
+        <div class="list-plane user-manager">
+            <div class="role-plane">
+                <div class="plane-title">
+                    <span><i class="fa fa-list-alt"></i> 业务办理记录查询</span>
+                    <!--<a class="add-user   "><i class="fa fa-user-plus"></i> 添加用户</a>-->
+                </div>
+                <div class="plane-body">
+                    <div class="query-top">
+                        &emsp;
+                        <div class="form-group inline-block">
+                            <label >时 间 : </label>
+                            <input type="text" class="form-control" style="width: 140px;font-size: 12px;" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder="请选择开始时间"> ~
+                            <input type="text" class="form-control" style="width: 140px;font-size: 12px;" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder="请选择结束时间">
+                        </div>
+                        <div class="form-group inline-block">
+                            <label >账 号 : </label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group inline-block">
+                            <label >业 务 : </label>
+                            <select name="" id="" class="form-control" >
+                                <option value="0">请选择</option>
+                                <option value="1">业务一</option>
+                                <option value="1">业务二</option>
+                                <option value="1">业务三 </option>
+                            </select>
+                        </div>
+                        <div class="form-group inline-block">
+                            <button type="button" class=" btn btn-primary "><i class="fa fa-search"></i> 查 询</button>
+                            <button type="button" class=" btn btn-info "><i class="fa fa-sign-out" style="transform: rotate(-90deg)"></i> 导 出</button>
+                        </div>
+                    </div>
+                    <div >
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>账号</th>
+                                <th>办理业务</th>
+                                <th>排队号</th>
+                                <th>办理时间</th>
+                                <th>办理窗口</th>
+                                <th>办理人员</th>
+                                <th>评价</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>王春华</td>
+                                <td>业务一</td>
+                                <td>212</td>
+                                <td>2018-11-29 09:22:30</td>
+                                <td>一窗口</td>
+                                <td>李艳</td>
+                                <td> <input  value="4.5" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs"></td>
+                            </tr>
+                            <tr>
+                                <td>沈文萍</td>
+                                <td>业务三</td>
+                                <td>213</td>
+                                <td>2018-11-29 10:00:11</td>
+                                <td>一窗口</td>
+                                <td>李艳</td>
+                                <td> <input  value="2" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs"></td>
+                            </tr>
+                            <tr>
+                                <td>秦燊</td>
+                                <td>业务一</td>
+                                <td>367</td>
+                                <td>2018-11-30 14:11:02</td>
+                                <td>三窗口</td>
+                                <td>王清水</td>
+                                <td> <input  value="3" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs"></td>
+                            </tr>
+                            <tr>
+                                <td>安溪</td>
+                                <td>业务二</td>
+                                <td>369</td>
+                                <td>2018-11-30 14:30:21</td>
+                                <td>一窗口</td>
+                                <td>李艳</td>
+                                <td> <input  value="5" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs"></td>
+                            </tr>
+                            <tr>
+                                <td>文星</td>
+                                <td>业务一</td>
+                                <td>370</td>
+                                <td>2018-11-30 15:29:55</td>
+                                <td>一窗口</td>
+                                <td>李艳</td>
+                                <td> <input  value="3" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="row page-row">
+                            <div class="col-sm-5">每页<select name="pageSize" class="form-control " >
+                                <option value="10" selected="">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>条，总共5条，显示1到5
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="pagination no-margin  pull-right">
+                                    <li class="disabled"><span>&lt;</span></li>
+                                    <li class="active"><a href="javascript:void(0)" >1</a></li>
+                                    <li><a href="javascript:void(0)" >&gt;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--业务处理-->
+        <div style="display: none ;" class="list-plane password-edit ">
+            <div class="role-plane">
+                <div class="plane-title">
+                    <span><i class="fa fa-newspaper-o"></i> 新增业务</span>
+                    <!--<a class="add-user   "><i class="fa fa-user-plus"></i> 添加用户</a>-->
+                </div>
+                <div class="plane-body">
+                    <div class="form-group">
+                        <label class="label">业务名称</label>
+                        <select name="" id="" class="form-control">
+                            <option value="1">业务一</option>
+                            <option value="2">业务二</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="label">办理窗口</label>
+                        <select name="" id="" class="form-control">
+                            <option value="1">一号窗口</option>
+                            <option value="2">二号窗口</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="label">办理人员</label>
+                        <select name="" id="" class="form-control">
+                            <option value="1">李艳</option>
+                            <option value="2">江霞</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button style="margin-left: 95px;" type="button" class="btn-primary btn  btn-small">&emsp; <i class="fa fa-plus"></i> 添加 &emsp; </button>
+                    </div>
+                </div>
+            </div>
+            <div class="role-plane">
+                <div class="plane-title">
+                    <span><i class="fa fa-indent"></i> 业务操作</span>
+                    <!--<a class="add-user   "><i class="fa fa-user-plus"></i> 添加用户</a>-->
+                </div>
+                <div class="plane-body">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>办理业务</th>
+                            <th>办理时间</th>
+                            <th>办理窗口</th>
+                            <th>排队号</th>
+                            <th>办理人员</th>
+                            <th class="text-center">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>业务一</td>
+                            <td>2018-11-29 09:22:30</td>
+                            <td>三号窗口</td>
+                            <td>225</td>
+                            <td>李艳</td>
+                            <td class="text-center">
+                                <a href="javascript:editTask()"><i class="fa fa-edit"></i> 修改</a> &emsp;|&emsp;
+                                <a href="javascript:deleteTask()"><i class="fa fa-trash"></i> 删除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>业务一</td>
+                            <td>2018-11-29 09:41:35</td>
+                            <td>二号窗口</td>
+                            <td>228</td>
+                            <td>江霞</td>
+                            <td class="text-center">
+                                <a href="javascript:editTask()"><i class="fa fa-edit"></i> 修改</a> &emsp;|&emsp;
+                                <a href="javascript:deleteTask()"><i class="fa fa-trash"></i> 删除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>业务二</td>
+                            <td>2018-11-29 09:54:26</td>
+                            <td>三号窗口</td>
+                            <td>229</td>
+                            <td>李艳</td>
+                            <td class="text-center">
+                                <a href="javascript:editTask()"><i class="fa fa-edit"></i> 修改</a> &emsp;|&emsp;
+                                <a href="javascript:deleteTask()"><i class="fa fa-trash"></i> 删除</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="row page-row">
+                        <div class="col-sm-5">每页<select name="pageSize" class="form-control " >
+                            <option value="10" selected="">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                        </select>条，总共3条，显示1到3
+                        </div>
+                        <div class="col-sm-7">
+                            <ul class="pagination no-margin  pull-right">
+                                <li class="disabled"><span>&lt;</span></li>
+                                <li class="active"><a href="javascript:void(0)" >1</a></li>
+                                <li><a href="javascript:void(0)" >&gt;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--数据统计-->
+        <div style="display: none ;" class="list-plane user-manager">
+            <div class="role-plane">
+                <div class="plane-title">
+                    <span><i class="fa fa-list-alt"></i> 业务数据统计</span>
+                    <!--<a class="add-user   "><i class="fa fa-user-plus"></i> 添加用户</a>-->
+                </div>
+                <div class="plane-body">
+                    <div class="query-top">
+                        &emsp;
+                        <div class="form-group inline-block">
+                            <label >业 务 : </label>
+                            <select name="" id="" class="form-control" >
+                                <option value="0">请选择</option>
+                                <option value="1">业务一</option>
+                                <option value="1">业务二</option>
+                                <option value="1">业务三 </option>
+                            </select>
+                        </div>
+                        <div class="form-group inline-block">
+                            <label >工号 : </label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group inline-block">
+                            <label >办理时间 : </label>
+                            <input type="text" class="form-control" style="width: 140px;font-size: 12px;" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder="请选择开始时间"> ~
+                            <input type="text" class="form-control" style="width: 140px;font-size: 12px;" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder="请选择结束时间">
+                        </div>
+                        <div class="form-group inline-block">
+                            <button type="button" class=" btn btn-primary "><i class="fa fa-search"></i> 查 询</button>
+                            <button type="button" class=" btn btn-info " id="dataStatistics"><i class="fa fa-sign-out" style="transform: rotate(-90deg)"></i> 导 出</button>
+                        </div>
+                        <div class="form-group pull-right">
+                            <div class="btn-group" role="group"  aria-label="...">
+                                <button onclick="showData(this,'table')" type="button" class="btn btn-default btn-success"><i class="fa fa-table " aria-hidden="true"></i> 表格</button>
+                                <button onclick="showData(this,'chart')" type="button" class="btn btn-default"><i class="fa fa-pie-chart" aria-hidden="true"></i> 图形</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-data" >
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>工号</th>
+                                <th>业务</th>
+                                <th>办理总数</th>
+                                <th>客户总数</th>
+                                <th>弃号总数</th>
+                                <th>未办理总数</th>
+                                <th>等候时间（分钟）</th>
+                                <th>办理时间（分钟）</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td rowspan="3">王艳</td>
+                                <td rowspan="3">0127</td>
+                                <td>业务一</td>
+                                <td>20</td>
+                                <td>20</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>23</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>业务二</td>
+                                <td>12</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>52</td>
+                                <td>34</td>
+                            </tr>
+                            <tr>
+                                <td>业务三</td>
+                                <td>11</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>21</td>
+                                <td>16</td>
+                            </tr>
+
+                            <tr>
+                                <td rowspan="3">王鑫</td>
+                                <td rowspan="3">0130</td>
+                                <td>业务一</td>
+                                <td>35</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>12</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>业务二</td>
+                                <td>11</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>12</td>
+                                <td>11</td>
+                            </tr>
+                            <tr>
+                                <td>业务三</td>
+                                <td>6</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>2</td>
+                                <td>1</td>
+                            </tr>
+
+                            <tr>
+                                <td rowspan="3">王清水</td>
+                                <td rowspan="3">0127</td>
+                                <td>业务一</td>
+                                <td>20</td>
+                                <td>20</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>18</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>业务二</td>
+                                <td>34</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>24</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>业务三</td>
+                                <td>12</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>22</td>
+                                <td>6</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="row page-row">
+                            <div class="col-sm-5">每页<select name="pageSize" class="form-control " >
+                                <option value="10" selected="">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>条，总共3条，显示1到3
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="pagination no-margin  pull-right">
+                                    <li class="disabled"><span>&lt;</span></li>
+                                    <li class="active"><a href="javascript:void(0)" >1</a></li>
+                                    <li><a href="javascript:void(0)" >&gt;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="charts-data" style="display: none;">
+                        <div id="taskChart1" class="chart-div col-md-4 col-sm-3"></div>
+                        <div id="taskChart2" class="chart-div col-md-4 col-sm-3"></div>
+                        <div id="taskChart3" class="chart-div col-md-4 col-sm-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="plugins/jquery/jquery.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.js"></script>
+<script src="plugins/bootstrap-toastr/toastr.min.js"></script>
+<script src="plugins/bootbox/bootbox.js"></script>
+<script src="plugins/bootstrap-table/bootstrap-table.js"></script>
+<script src="plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+<script src="plugins/echarts3/echarts.min.js"></script>
+<!--修改过源码-->
+<script src="plugins/bootstrap-star/js/star-rating.js"></script>
+<script src="plugins/My97DatePicker/WdatePicker.js"></script>
+<script src="assets/js/common.js"></script>
+<script>
+
+    var nameArr = ['王艳','李鑫','王清水'];
+    $(".left-side").on('click','li',function () {
+        var index = $(this).index();
+        $(this).addClass('active').siblings().removeClass('active');
+        $(".list-plane").eq(index).show().siblings().hide();
+    });
+
+    var chart1= loadChart("taskChart1",getOption("业务一",nameArr,getData()));
+    var chart2= loadChart("taskChart2",getOption("业务二",nameArr,getData()));
+    var chart3= loadChart("taskChart3",getOption("业务三",nameArr,getData()));
+
+
+    function showData(obj,type) {
+        $(obj).addClass('btn-success').siblings().removeClass('btn-success');
+        if(type=="table"){
+            $(".table-data").show();
+            $(".charts-data").hide();
+            $("#dataStatistics").show();
+        }if(type=="chart"){
+            $(".charts-data").show();
+            $(".table-data").hide();
+            $("#dataStatistics").hide();
+            chart1.resize();
+            chart2.resize();
+            chart3.resize();
+
+        }
+
+    }
+
+    //业务处理 删除
+    function deleteTask() {
+        bootbox.confirm({
+            size: "small",
+            message:"确定要删除",
+            buttons: {
+                cancel: {
+                    label: '取消',
+                    className: 'btn-default btn-small'
+                },
+                confirm: {
+                    label: '确认',
+                    className: 'btn-primary btn-small'
+                }
+            },
+            callback: function(result){
+
+            }
+        })
+    }
+
+    //业务处理 修改
+    function editTask() {
+        var dialog = st_dialogOpen('修改', 'dialog/edit-task.html', okFunc, 'full');
+
+        function okFunc() {
+            console.log(1);
+        }
+    }
+
+
+    // 生成数据
+    function getData() {
+        return [{value:getNum(), name:'王艳'}, {value:getNum(), name:'李鑫'}, {value:getNum(), name:'王清水'}]
+    }
+
+    //随机数
+    function getNum(){
+        return parseInt(Math.random()*100+1)
+    }
+     //chart 配置
+    function getOption(title,name,data) {
+        var option = {
+            // color:["#91c7ae","#61a0a8","#6e7074"],
+            title: {
+                text: title,
+                // subtext: '纯属虚构',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: name
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {
+                        type: "png",
+                        title: "保存"
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '办理情况',
+                    type: 'pie',
+                    radius: '70%',
+                    center: ['45%', '60%'],
+                    data: data,
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        return option;
+    }
+
+</script>
+</body>
+</html>

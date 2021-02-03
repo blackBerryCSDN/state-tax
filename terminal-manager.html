@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>国税预约后台管理系统</title>
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="plugins/bootstrap-toastr/toastr.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap-table/bootstrap-table.css">
+    <link rel="stylesheet" href="plugins/bootstrap-star/css/star-rating.css">
+    <link rel="stylesheet" href="plugins/My97DatePicker/skin/WdatePicker.css">
+    <link rel="stylesheet" href="assets/css/siderbar-left.css">
+    <link rel="stylesheet" href="plugins/bootstrap-editable/bootstrap-editable/css/bootstrap-editable.css">
+    <link rel="stylesheet" href="assets/css/web.css">
+
+
+
+</head>
+<body class="body-width" style="background: #fff;">
+<div class="header-top-wrap clearfix header">
+    <div class="logo-img">
+        <img src="assets/img/logo.png" alt="" style="height: 50px;">
+    </div>
+    <ul class="header-ul " >
+        <li  ><a href="task-manager.html"><i class="glyphicon glyphicon-list"></i> 业务管理</a></li>
+        <li > <a href="evaluate-manager.html"><i class="glyphicon glyphicon-star"></i> 评价统计</a></li>
+        <li ><a href="user-manager.html"><i class="glyphicon glyphicon-user"></i> 人员管理</a></li>
+        <li  class="active"><a href="terminal-manager.html"><i class="glyphicon glyphicon-th-large"></i> 调试界面</a></li>
+        <li ><a href="system-manager.html"><i class="glyphicon glyphicon-cog"></i> 系统设置</a></li>
+    </ul>
+    <ul class="nav navbar-nav  pull-right person-info">
+        <!--<li><a href="#">Link</a></li>-->
+        <li class="dropdown ">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员-李元华 <span class="caret"></span></a>
+            <ul class="dropdown-menu pull-right">
+                <li><a href="login.html">注销</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+<div class="main-container darg-box">
+    <div class="device-list">
+        <div class="terminal-class">
+           <span>设备</span>
+            <select name="" class="form-control pull-right" id="">
+                <option value="0">全部设备</option>
+                <option value="0">呼叫器</option>
+                <option value="0">评价器</option>
+            </select>
+        </div>
+
+        <ul class="device-box-ul clearfix" style="min-height: 400px;">
+            <li type="call">
+                <img src="assets/img/called.png" alt="" >
+                <div>呼叫器一</div>
+            </li>
+            <li type="call">
+                <img src="assets/img/called.png" alt="" >
+                <div>呼叫器二</div>
+            </li>
+            <li type="call">
+                <img src="assets/img/called.png" alt="" >
+                <div>呼叫器四</div>
+            </li>
+            <li type="evaluate">
+                <img src="assets/img/Actor.png" alt="" >
+                <div>评价器二</div>
+            </li>
+            <li type="evaluate">
+                <img src="assets/img/Actor.png" alt="" >
+                <div>评价器三</div>
+            </li>
+            <li type="show">
+                <img src="assets/img/displayee1.png" alt="" >
+                <div>显示屏一</div>
+            </li>
+        </ul>
+
+    </div>
+    <div class="terminal-wrap clearfix">
+        <div class="role-plane">
+            <div class="plane-title">
+               <span> 窗口配置</span>
+                <button type="button" onclick="addWindowModal()" class="btn btn-primary btn-small" style="margin-left: 200px;font-size: 12px;"> <i class="glyphicon glyphicon-plus"></i> 添加窗口</button>
+            </div>
+            <div class="plane-body" id="windowBox" style="min-height: 500px;">
+                <div class="terminal-box " type="call evaluate">
+                    <div class="title-window">
+                        <span id="titleSpan1">窗口一</span>
+                        <div class="pull-right remove-plane" onclick="removePlane(this)"><i class="glyphicon glyphicon-remove"></i></div>
+                    </div>
+                    <ul class="terminal-box-ul clearfix">
+                        <li type="call">
+                            <img src="assets/img/called.png" alt="" >
+                            <div>呼叫器五</div>
+                        </li>
+                        <li type="evaluate">
+                            <img src="assets/img/Actor.png" alt="" >
+                            <div>评价器四</div>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <div class="terminal-box clearfix">
+                    <div class="title-window">
+                        <span id="titleSpan2">窗口二</span>
+                        <div class="pull-right  remove-plane" onclick="removePlane(this)"><i class="glyphicon glyphicon-remove"></i></div>
+                    </div>
+                    <ul class="terminal-box-ul clearfix">
+                        <li type="call">
+                            <img src="assets/img/called.png" alt="" >
+                            <div>呼叫器三</div>
+                        </li>
+                        <li type="evaluate">
+                            <img src="assets/img/Actor.png" alt="" >
+                            <div>评价器一</div>
+                        </li>
+                        <li type="evaluate">
+                            <img src="assets/img/displayee1.png" alt="" >
+                            <div>显示屏二</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="plugins/jquery/jquery.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.js"></script>
+<script src="plugins/bootstrap-toastr/toastr.min.js"></script>
+<script src="plugins/bootbox/bootbox.js"></script>
+<script src="plugins/bootstrap-table/bootstrap-table.js"></script>
+<script src="plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+<script src="plugins/echarts3/echarts.min.js"></script>
+<!--修改过源码-->
+<script src="plugins/bootstrap-star/js/star-rating.js"></script>
+<script src="plugins/My97DatePicker/WdatePicker.js"></script>
+<script src="plugins/bootstrap-editable/bootstrap-editable/js/bootstrap-editable.js"></script>
+<script src="assets/js/common.js"></script>
+<!-- Modal -->
+<div class="modal fade" id="addWindowModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">添加窗口</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group text-center">
+                    <label class="label" for="">窗口名称：</label>
+                    <input id="windowNew" type="text" class="form-control" placeholder="请输入窗口名称" value="新窗口">
+                </div>
+                <div class="form-group text-center clearfix">
+                    <div class="text-center clearfix">
+                        <label class="label " style="height: 50px;vertical-align: top;" for="">描述：</label>
+                        <textarea class="form-control " rows="3" style="height: 50px;"></textarea>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addElement()">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $('#titleSpan1').editable({
+            type: 'text',
+            pk: 1,
+            url: '',
+            title: ''
+        });
+        $('#titleSpan2').editable({
+            type: 'text',
+            pk: 1,
+            url: '',
+            title: ''
+        });
+        $('#titleSpan3').editable({
+            type: 'text',
+            pk: 1,
+            url: '',
+            title: ''
+        });
+        //出入允许拖拽节点的父容器，一般是ul外层的容器
+        drag.init('darg-box');
+
+    });
+
+    function addWindowModal() {
+        $("#addWindowModal").modal("show");
+    }
+
+    function addElement() {
+        var value= $("#windowNew").val();
+        var html=  `<div class="terminal-box clearfix">
+                    <div class="title-window">
+                        <span id="titleSpan3"> `+ value+`</span>
+                        <div class="pull-right  remove-plane" onclick="removePlane(this)"><i class="glyphicon glyphicon-remove"></i></div>
+                    </div>
+                    <ul class="terminal-box-ul clearfix">
+
+                    </ul>
+                </div>`;
+
+        $("#windowBox").append(html);
+        $('#titleSpan3').editable({
+            type: 'text',
+            pk: 1,
+            url: '',
+            title: ''
+        });
+    }
+
+    function removePlane(obj) {
+        $(obj).parents(".title-window").parents(".terminal-box").remove();
+    }
+
+
+    var drag = {
+
+        class_name : null,  //允许放置的容器
+        permitDrag : false,	//是否允许移动标识
+
+        _x : 0,             //节点x坐标
+        _y : 0,			    //节点y坐标
+        _left : 0,          //光标与节点坐标的距离
+        _top : 0,           //光标与节点坐标的距离
+
+        old_elm : null,     //拖拽原节点
+        tmp_elm : null,     //跟随光标移动的临时节点
+        new_elm : null,     //拖拽完成后添加的新节点
+
+        type :null,  //判断点击的类型
+        typeStr :null, //
+        targetType :null, //
+        targetIndex :null, //
+
+        //初始化
+        init : function (className){
+
+            //允许拖拽节点的父容器的classname(可按照需要，修改为id或其他)
+            drag.class_name = className;
+
+            //监听鼠标按下事件，动态绑定要拖拽的节点（因为节点可能是动态添加的）
+            $('.' + drag.class_name).on('mousedown', ' li', function(event){
+                //当在允许拖拽的节点上监听到点击事件，将标识设置为可以拖拽
+                drag.permitDrag = true;
+                //获取到拖拽的原节点对象
+                drag.old_elm = $(this);
+                //执行开始拖拽的操作
+                drag.mousedown(event);
+                return false;
+            });
+
+            //监听鼠标移动
+            $(document).mousemove(function(event){
+                //判断拖拽标识是否为允许，否则不进行操作
+                if(!drag.permitDrag) return false;
+                //执行移动的操作
+                drag.mousemove(event);
+                return false;
+            });
+
+            //监听鼠标放开
+            $(document).mouseup(function(event){
+                //判断拖拽标识是否为允许，否则不进行操作
+                if(!drag.permitDrag) return false;
+                //拖拽结束后恢复标识到初始状态
+                drag.permitDrag = false;
+                //执行拖拽结束后的操作
+                drag.mouseup(event);
+                return false;
+            });
+
+        },
+
+        //按下鼠标 执行的操作
+        mousedown : function (event){
+            //
+            // console.log('我被mousedown了');
+            //1.克隆临时节点，跟随鼠标进行移动
+            drag.tmp_elm = $(drag.old_elm).clone();
+            drag.type =  drag.tmp_elm.attr("type");
+            // console.log("点击的是type是:"+drag.type);
+            //2.计算 节点 和 光标 的坐标
+            drag._x = $(drag.old_elm).offset().left;
+            drag._y = $(drag.old_elm).offset().top;
+
+            var e = event || window.event;
+            drag._left = e.pageX - drag._x;
+            drag._top = e.pageY - drag._y;
+
+            //3.修改克隆节点的坐标，实现跟随鼠标进行移动的效果
+            $(drag.tmp_elm).css({
+                'position' : 'absolute',
+                'background-color' : '#FF8C69',
+                'z-index' : '99999',
+                'width':"100px",
+                // 'height':"80px",
+                'left' : drag._x,
+                'top' : drag._y,
+            });
+            $(drag.tmp_elm).find('img').css({
+                'width':"80px",
+                'height':"80px",
+            });
+
+            //4.添加临时节点
+            tmp = $(drag.old_elm).parent().append(drag.tmp_elm);
+            drag.tmp_elm = $(tmp).find(drag.tmp_elm);
+            $(drag.tmp_elm).css('cursor', 'move');
+
+        },
+
+        //移动鼠标 执行的操作
+        mousemove : function (event){
+            // console.log('我被mousemove了');
+            //2.计算坐标
+            var e = event || window.event;
+            var x = e.pageX - drag._left;
+            var y = e.pageY - drag._top;
+            var maxL = $(document).width() - $(drag.old_elm).outerWidth();
+            var maxT = $(document).height() - $(drag.old_elm).outerHeight();
+            //不允许超出浏览器范围
+            x = x < 0 ? 0: x;
+            x = x > maxL ? maxL: x;
+            y = y < 0 ? 0: y;
+            y = y > maxT ? maxT: y;
+
+            //3.修改克隆节点的坐标
+            $(drag.tmp_elm).css({
+                'left' : x,
+                'top' : y,
+            });
+            $(drag.tmp_elm).find('img').css({
+                'width':"80px",
+                'height':"80px",
+            });
+
+            //判断当前容器是否允许放置节点
+            $.each($('.' + drag.class_name + ' ul'), function(index, value){
+
+                //获取容器的坐标范围 (区域)
+                var box_x = $(value).offset().left;     //容器左上角x坐标
+                var box_y = $(value).offset().top;      //容器左上角y坐标
+                var box_width = $(value).outerWidth();  //容器宽
+                var box_height = $(value).outerHeight();//容器高
+
+                //给可以放置的容器加背景色
+                if(e.pageX > box_x && e.pageX < box_x-0+box_width && e.pageY > box_y && e.pageY < box_y-0+box_height){
+
+                    //判断是否不在原来的容器下（使用坐标进行判断：x、y任意一个坐标不等于原坐标，则表示不是原来的容器）
+                    if($(value).offset().left !== drag.old_elm.parent().offset().left
+                        || $(value).offset().top !== drag.old_elm.parent().offset().top){
+                         $(value).css('background-color', '#FFEFD5');
+                        // tem_type = tem_type +" "+ drag.type;
+                    }
+                }else{
+                    //恢复容器原背景色
+                    $(value).css('background-color', '#FFFFF0');
+                }
+
+            });
+
+        },
+
+        //放开鼠标 执行的操作
+        mouseup : function (event){
+            // console.log('我被mouseup了');
+            //移除临时节点
+            $(drag.tmp_elm).remove();
+
+            //判断所在区域是否允许放置节点
+            var e = event || window.event;
+            var attrArr=[];
+            $.each($('.' + drag.class_name + ' ul'), function(index, value){
+                // console.log(tem_type);
+                //判断被拖动到的ul是否带有type 属性的li ,如果有，则不添加
+
+                //获取容器的坐标范围 (区域)
+                var box_x = $(value).offset().left;     //容器左上角x坐标
+                var box_y = $(value).offset().top;      //容器左上角y坐标
+                var box_width = $(value).outerWidth();  //容器宽
+                var box_height = $(value).outerHeight();//容器高
+
+                //判断放开鼠标位置是否想允许放置的容器范围内
+                if(e.pageX > box_x && e.pageX < box_x-0+box_width && e.pageY > box_y && e.pageY < box_y-0+box_height){
+
+
+                    //判断是否不在原来的容器下（使用坐标进行判断：x、y任意一个坐标不等于原坐标，则表示不是原来的容器）
+                    if($(value).offset().left !== drag.old_elm.parent().offset().left
+                        || $(value).offset().top !== drag.old_elm.parent().offset().top){
+                        var tem_type=$('.' + drag.class_name + ' ul').eq(index).attr("type");
+                        var attrStr= $('.' + drag.class_name + ' ul').eq(index).attr("type");
+
+                        //向目标容器添加节点并删除原节点
+                        tmp = $(drag.old_elm).clone();
+                        var newObj = $(value).append(tmp);
+                        $(drag.old_elm).remove();
+                        //获取新添加节点的对象
+                        drag.new_elm = $(newObj).find(tmp);
+
+
+                    }
+                }
+                //恢复容器原背景色
+                $(value).css('background-color', '#fff');
+            });
+        },
+
+    };
+
+
+
+
+</script>
+</body>
+</html>

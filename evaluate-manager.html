@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>国税预约后台管理系统</title>
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="plugins/bootstrap-toastr/toastr.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap-table/bootstrap-table.css">
+    <link rel="stylesheet" href="plugins/bootstrap-star/css/star-rating.css">
+    <link rel="stylesheet" href="plugins/My97DatePicker/skin/WdatePicker.css">
+    <link rel="stylesheet" href="assets/css/siderbar-left.css">
+    <link rel="stylesheet" href="assets/css/web.css">
+
+
+
+</head>
+<body class="body-width">
+<div class="header-top-wrap clearfix header">
+    <div class="logo-img">
+        <img src="assets/img/logo.png" alt="" style="height: 50px;">
+    </div>
+    <ul class="header-ul " >
+        <li  ><a href="task-manager.html"><i class="glyphicon glyphicon-list"></i> 业务管理</a></li>
+        <li  class="active"> <a href="evaluate-manager.html"><i class="glyphicon glyphicon-star"></i> 评价统计</a></li>
+        <li ><a href="user-manager.html"><i class="glyphicon glyphicon-user"></i> 人员管理</a></li>
+        <li ><a href="terminal-manager.html"><i class="glyphicon glyphicon-th-large"></i> 调试界面</a></li>
+        <li ><a href="system-manager.html"><i class="glyphicon glyphicon-cog"></i> 系统设置</a></li>
+    </ul>
+    <ul class="nav navbar-nav  pull-right person-info">
+        <!--<li><a href="#">Link</a></li>-->
+        <li class="dropdown ">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员-李元华 <span class="caret"></span></a>
+            <ul class="dropdown-menu pull-right">
+                <li><a href="login.html">注销</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+<div class="main-container">
+    <div class="common-content">
+        <div class="list-plane user-manager">
+            <div class="role-plane ">
+                <div class="plane-title"> <span><i class="fa fa-user-plus"></i> 评价排名</span> </div>
+                <div class="plane-body padding-10">
+                    <table class="table table-bordered vertical-middle text-center table-ranking" id="tableRanking">
+                        <thead >
+                        <tr>
+                            <th class="text-center" >姓名</th>
+                            <th class="text-center" >工号</th>
+                            <th class="text-center sortTh" style="background: #dff0d8">任务排名</th>
+                            <th class="text-center sortTh" >效率排名</th>
+                            <th class="text-center sortTh">满意度排名</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>李艳</td>
+                            <td><span class="rank-num">0216</span></td>
+                            <td>
+                                <span class="rank-num strong-font">1</span>
+                                <input  value="5" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs">
+                            </td>
+                            <td>
+                                <span class="rank-num strong-font">2</span>
+                                <input  value="4.5" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs">
+                            </td>
+                            <td>
+                                <span class="rank-num strong-font">3</span>
+                                <input  value="4" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>王清水</td>
+                            <td><span class="rank-num">0217</span></td>
+                            <td>
+                                <span class="rank-num strong-font">2</span>
+                                <input  value="4.5" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs" >
+                            </td>
+                            <td><span class="rank-num strong-font">3</span>
+                                <input  value="4.2" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs">
+                            </td>
+                            <td><span class="rank-num ">4</span>
+                                <input  value="3" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>王鑫</td>
+                            <td><span class="rank-num">0218</span></td>
+                            <td>
+                                <span class="rank-num strong-font">3</span>
+                                <input  value="4.3" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs" >
+                            </td>
+                            <td><span class="rank-num ">5</span>
+                                <input  value="3" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs">
+                            </td>
+                            <td><span class="rank-num ">5</span>
+                                <input  value="2.5" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>蒋艳艳</td>
+                            <td><span class="rank-num">0219</span></td>
+                            <td>
+                                <span class="rank-num">4</span>
+                                <input  value="4" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs" >
+                            </td>
+                            <td><span class="rank-num ">6</span>
+                                <input  value="2" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs">
+                            </td>
+                            <td><span class="rank-num ">6</span>
+                                <input  value="2" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>赵琴</td>
+                            <td><span class="rank-num">0230</span></td>
+                            <td>
+                                <span class="rank-num">5</span>
+                                <input  value="3" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs" >
+                            </td>
+                            <td><span class="rank-num ">4</span>
+                                <input  value="3" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs">
+                            </td>
+                            <td><span class="rank-num strong-font">2</span>
+                                <input  value="4.5" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>乔娜</td>
+                            <td><span class="rank-num">0235</span></td>
+                            <td>
+                                <span class="rank-num">6</span>
+                                <input  value="3" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs" >
+                            </td>
+                            <td><span class="rank-num strong-font">1</span>
+                                <input  value="5" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs">
+                            </td>
+                            <td><span class="rank-num strong-font">1</span>
+                                <input  value="5" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="xs">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <div class="row page-row">
+                        <div class="col-sm-5">每页<select name="pageSize" class="form-control " >
+                            <option value="10" selected="">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                        </select>条，总共5条，显示1到5
+                        </div>
+                        <div class="col-sm-7">
+                            <ul class="pagination no-margin  pull-right">
+                                <li class="disabled"><span>&lt;</span></li>
+                                <li class="active"><a href="javascript:void(0)" >1</a></li>
+                                <li><a href="javascript:void(0)" >&gt;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="plugins/jquery/jquery.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.js"></script>
+<script src="plugins/bootstrap-toastr/toastr.min.js"></script>
+<script src="plugins/bootbox/bootbox.js"></script>
+<script src="plugins/bootstrap-table/bootstrap-table.js"></script>
+<script src="plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+<script src="plugins/echarts3/echarts.min.js"></script>
+<!--修改过源码-->
+<script src="plugins/bootstrap-star/js/star-rating.js"></script>
+<script src="plugins/My97DatePicker/WdatePicker.js"></script>
+<script src="assets/js/common.js"></script>
+<script>
+
+    var table=$("#tableRanking");
+    var table_th=$("#tableRanking thead th");
+    var table_tbody=$("#tableRanking tbody");
+    var table_tr=$("#tableRanking tbody tr");
+
+    function bind_click(_i){
+        table_th[_i].onclick=function(){
+            if(_i!=0) {
+                $(this).css({background: "#dff0d8"}).siblings().css({background: "#eee"});
+            }
+
+            $("#tableRanking tbody tr ").remove();
+            var temp_arr=[];
+            var temp_tr_arr=[];
+
+            for(var j=0;j<table_tr.length;j++){
+                temp_arr.push(parseInt(table_tr.eq(j).find("td").eq(_i).find('.rank-num').html()));
+                temp_tr_arr.push(table_tr.eq(j).clone(true));
+            }
+            var len = temp_arr.length;
+            for (var i = 0; i < len; i++) {
+                for (var j = 0; j < len - 1 - i; j++) {
+                    if (temp_arr[j] > temp_arr[j+1]) {        //相邻元素两两对比
+                        var temp = temp_arr[j+1];        //元素交换
+                        temp_arr[j+1] = temp_arr[j];
+                        temp_arr[j] = temp;
+
+                        var temptr = temp_tr_arr[j+1];
+                        temp_tr_arr[j+1]= temp_tr_arr[j];
+                        temp_tr_arr[j] = temptr;
+                    }
+                }
+            }
+            for(var k=0;k<temp_arr.length;k++){
+                for(var vv=0;vv<temp_tr_arr.length;vv++){
+                    table_tbody.append(temp_tr_arr[vv]);
+                }
+            }
+        }
+    }
+    for(i=0;i<table_th.length;i++){
+        bind_click(i);
+    }
+
+
+</script>
+</body>
+</html>

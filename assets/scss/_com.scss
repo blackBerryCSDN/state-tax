@@ -1,0 +1,174 @@
+ul{
+  padding: 0px;
+  margin: 0px;
+}
+.inline-block{
+  display: inline-block !important;
+}
+
+//分页
+.page-row{
+  margin: 0px;
+  margin-bottom: 10px;
+  .col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-10,.col-sm-11,.col-sm-12,.col-sm-1,.col-sm-2,.col-sm-3,.col-sm-4{
+    padding: 0px;
+  }
+
+  .form-control{
+    width: 70px;
+    display: inline-block;
+    margin:0px 5px;
+    padding: 4px 10px;
+    height: 30px;
+  }
+  .pagination{
+    margin: 0px;
+  }
+  .pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 4px 10px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+}
+.border-none{
+  border: none !important;
+}
+
+//form-group
+.form-group{
+  //text-align: center;
+  //display: inline-block;
+  .label{
+    width: 80px;
+    text-align: right;
+    margin-right: 10px;
+    display: inline-block;
+    color:#000;
+  }
+  .radio-inline{
+    text-align: left;
+    width: 40px;
+    input{
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+    }
+  }
+  .form-control{
+    display: inline-block;
+    width: 200px;
+    padding: 4px 10px;
+    height: 30px;
+  }
+  .pass-wrong{
+    display: none;
+    margin-bottom: -15px;
+    //margin-left: 100px;
+    font-size: 12px;
+    color: red;
+  }
+}
+
+.padding-10{
+  padding-left: 10px !important;
+}
+
+// plane
+.role-plane{
+  margin-bottom: 20px;
+  .plane-title{
+    padding: 8px 10px;
+    //margin-bottom: 5px;
+    background: rgba(140,159,166,0);
+    background: #fff;
+    border: 1px solid #cdcdcd;
+    border-left: 3px solid #2aabd2;
+    color: #219ed8;
+    font-size: 15px;
+    border-bottom: none;
+    border-top-right-radius: 6px;
+    //border-top-left-radius: 6px;
+
+    .add-user{
+      margin-left: 100px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+  }
+  .plane-body{
+    //max-height: 400px;
+    overflow: auto;
+    background: #fff;
+    border: 1px solid #cdcdcd;
+    padding: 10px 5px;
+    font-size: 12px;
+  }
+}
+
+//弹出框
+.modal-dialog{
+  .modal-content{
+    .modal-header{
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .modal-footer{
+      .btn{
+        padding: 4px 15px;
+        height: 30px;
+      }
+    }
+  }
+}
+
+.table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+  border-bottom-width: 1px;
+}
+
+.table{
+  thead{
+    tr{
+      th{
+        font-weight: 500;
+        padding: 6px ;
+        background: rgba(239, 239, 239, 0.8);
+
+      }
+    }
+  }
+  tbody{
+    tr{
+      td{
+        vertical-align: middle;
+        padding: 6px ;
+      }
+    }
+  }
+}
+
+.vertical-middle{
+  thead{
+    tr{
+      th{
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.editable-submit ,.editable-cancel{
+  padding: 2px 12px;
+}
+.blue {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  color: #fff;
+}

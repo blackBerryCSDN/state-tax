@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>国税预约后台管理系统</title>
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="plugins/bootstrap-toastr/toastr.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap-table/bootstrap-table.css">
+    <link rel="stylesheet" href="plugins/bootstrap-star/css/star-rating.css">
+    <link rel="stylesheet" href="plugins/My97DatePicker/skin/WdatePicker.css">
+    <link rel="stylesheet" href="assets/css/siderbar-left.css">
+
+
+    <link rel="stylesheet" href="plugins/kindeditor/themes/default/default.css">
+    <link rel="stylesheet" href="plugins/kindeditor/plugins/code/prettify.css">
+
+    <link rel="stylesheet" href="assets/css/web.css">
+
+
+
+
+    <!--
+        <link rel="stylesheet" href="../themes/default/default.css" />
+        <link rel="stylesheet" href="../plugins/code/prettify.css" />
+        <script charset="utf-8" src="../kindeditor.js"></script>
+        <script charset="utf-8" src="../lang/zh-CN.js"></script>
+        <script charset="utf-8" src="../plugins/code/prettify.js"></script>
+    -->
+
+</head>
+<body class="body-width">
+<div class="header-top-wrap clearfix header">
+    <div class="logo-img">
+        <img src="assets/img/logo.png" alt="" style="height: 50px;">
+    </div>
+    <ul class="header-ul " >
+        <li  ><a href="task-manager.html"><i class="glyphicon glyphicon-list"></i> 业务管理</a></li>
+        <li  > <a href="evaluate-manager.html"><i class="glyphicon glyphicon-star"></i> 评价统计</a></li>
+        <li ><a href="user-manager.html"><i class="glyphicon glyphicon-user"></i> 人员管理</a></li>
+        <li ><a href="terminal-manager.html"><i class="glyphicon glyphicon-th-large"></i> 调试界面</a></li>
+        <li class="active"><a href="system-manager.html"><i class="glyphicon glyphicon-cog"></i> 系统设置</a></li>
+    </ul>
+    <ul class="nav navbar-nav  pull-right person-info">
+        <!--<li><a href="#">Link</a></li>-->
+        <li class="dropdown ">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员-李元华 <span class="caret"></span></a>
+            <ul class="dropdown-menu pull-right">
+                <li><a href="login.html">注销</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+<div class="main-container">
+    <div class="common-content">
+        <div class="list-plane user-manager">
+            <div class="role-plane">
+                <div class="plane-title">
+                    <span><i class="fa fa-cogs"></i> 基础参数设置</span>
+                    <!--<a class="add-user   "><i class="fa fa-user-plus"></i> 添加用户</a>-->
+                </div>
+                <div class="plane-body">
+                    <div class="system-set">
+                        <label class="label" >重排后移位数 : </label>
+                        <input type="text"  class="form-control inline-block">&emsp;
+                        <span > <span class="badge">?</span> 提示:输入的值为往后重排的位数  </span>
+                    </div>
+                    <div class="system-set">
+                        <label class="label" >转移优先排位数 : </label>
+                        <input type="text"  class="form-control inline-block" >&emsp;
+                        <span> <span class="badge">?</span> 提示:输入的值为往前排的位数 </span>
+                    </div>
+                </div>
+            </div>
+            <div class="role-plane">
+                <div class="plane-title">
+                    <span><i class="fa fa-cogs"></i> 打印模板设置</span>
+                    <!--<a class="add-user   "><i class="fa fa-user-plus"></i> 添加用户</a>-->
+                </div>
+                <div class="plane-body" style="padding: 10px 30px;">
+                     <textarea name="content1" cols="100" rows="8" style="width:300px;height:500px;visibility:hidden;display: inline-block;padding: 30px;">
+                                <div class="text-center" style="text-align: center;"><img src="assets/img/title.png" alt="" width="300" ></div>
+                                <br>
+                                <p style="padding: 5px 30px;font-size: 18px;">您的号码为:</p>
+                                <p style="text-align: center;font-size: 30px;">0086</p>
+                                <p style="text-align: center;font-size: 30px;">人民币业务</p>
+                                <br>
+                                <p  style="padding: 5px 30px;font-size: 15px;">
+                                        &emsp;&emsp;您前面还有 <b>3</b> 人在等候, 请您到休息区等候，您的号码将被呼叫并显示，过号无效，请重新取号，谢谢！
+                                </p>
+                                 <div style="border-top: 1px dashed #ddd;margin: 0px 0px 15px 0px; height: 10px;width: 100%;"></div>
+                                <p style="text-align: right;font-size: 15px;">
+                                    2018-12-19 &emsp;
+                                </p>
+
+
+
+                            </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="plugins/jquery/jquery.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.js"></script>
+<script src="plugins/bootstrap-toastr/toastr.min.js"></script>
+<script src="plugins/bootbox/bootbox.js"></script>
+<script src="plugins/bootstrap-table/bootstrap-table.js"></script>
+<script src="plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+<script src="plugins/echarts3/echarts.min.js"></script>
+<!--修改过源码-->
+<script src="plugins/bootstrap-star/js/star-rating.js"></script>
+<script src="plugins/My97DatePicker/WdatePicker.js"></script>
+<script src="assets/js/common.js"></script>
+
+
+<script src="plugins/kindeditor/kindeditor-all.js"></script>
+<script src="plugins/kindeditor/lang/zh-CN.js"></script>
+<script src="plugins/kindeditor/plugins/code/prettify.js"></script>
+
+<script>
+
+    KindEditor.ready(function(K) {
+        var editor1 = K.create('textarea[name="content1"]', {
+            cssPath : 'plugins/code/prettify.css',
+            uploadJson : 'jsp/upload_json.jsp',
+            fileManagerJson : 'jsp/file_manager_json.jsp',
+            allowFileManager : true,
+            afterCreate : function() {
+                var self = this;
+                K.ctrl(document, 13, function() {
+                    self.sync();
+                    document.forms['example'].submit();
+                });
+                K.ctrl(self.edit.doc, 13, function() {
+                    self.sync();
+                    document.forms['example'].submit();
+                });
+            }
+        });
+        prettyPrint();
+    });
+
+
+    /*
+
+    private String htmlspecialchars(String str) {
+        str = str.replaceAll("&", "&amp;");
+        str = str.replaceAll("<", "&lt;");
+        str = str.replaceAll(">", "&gt;");
+        str = str.replaceAll("\"", "&quot;");
+        return str;
+    }
+    * */
+
+</script>
+</body>
+</html>

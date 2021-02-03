@@ -1,0 +1,354 @@
+
+body{
+  font-family: 微软雅黑;
+  font-size: $font-14;
+  color: $color-black;
+  background: rgba(239,239,239,0.8);
+}
+.body-width{
+  min-width: 1000px;
+}
+.btn-small{
+  padding: 4px 15px !important;
+}
+
+.header-top-wrap{
+  background: rgb(11,102,181);
+
+  .logo-img{
+    display: inline-block;
+    padding-left: 20px;
+  }
+  .header-ul{
+    display: inline-block;
+    list-style: none;
+    margin-left: 50px;
+    margin-left: 20px;
+    li{
+      display: inline-block;
+      margin-right: 1px;
+      padding: 0px 20px;
+      user-select: none;
+      a{
+        display: inline-block;
+        height: 50px;
+        line-height: 54px;
+        color:$color-white;
+        text-decoration: none;
+      }
+    }
+
+    li:hover ,.active{
+      background: #2e6da4;
+      background: rgba(38,72,83,0.4);
+      a{
+
+        color: #fff;
+      }
+
+    }
+
+  }
+
+  .nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: transparent;
+  }
+  .person-info{
+    padding-right: 20px;
+    .dropdown{
+      a{
+        color: #fff;
+      }
+      ul{
+        li{
+          a{
+            color: #000;
+          }
+        }
+      }
+    }
+    .open{
+      a{
+        background: transparent;
+      }
+      ul{
+        li:hover{
+          background: #ddd;
+        }
+      }
+    }
+  }
+  .person-info .open > a:hover, .person-info .open > a:focus {
+    text-decoration: none;
+    color:#fff;
+    background-color: transparent !important;
+  }
+
+}
+
+.main-container{
+  overflow: auto;
+  .left-side{
+    width: 180px;
+    float: left;
+    position: relative;
+    padding-top: 2px;
+    li{
+      background: rgba(38,72,83,0.4);
+      line-height: 40px;
+      text-align: center;
+      border-bottom: 1px solid #bbb;
+      color: #6e8e9b;
+      cursor: pointer;
+      a{
+        span{
+          font-size: 14px;
+        }
+      }
+    }
+    .active{
+      color:#91a3ad;
+      color:#fff;
+      background: #219ed8;
+      font-weight: bold;
+      i{
+        font-weight: bold;
+      }
+    }
+  }
+  .left-side:before{
+    content: "";
+    display: block;
+    width: 180px;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    z-index: -1;
+    border: 1px solid #ccc;
+    border-width: 0 1px 0 0;
+  }
+  .right-side{
+    margin-left: 180px;
+    padding: 20px 10px;
+    .breadcrumb{
+      margin-bottom: 5px;
+    }
+
+  }
+
+
+}
+
+.query-top{
+  margin-bottom: 10px;
+  //padding-bottom: 10px;
+  border-bottom: 1px dashed #aaa;
+  .form-group{
+    margin-right: 15px;
+    .form-control{
+      width: 140px;
+    }
+    .btn{
+      height: 30px;
+      margin-top: -4px;
+      margin-right: 15px;
+      padding: 3px 15px;
+      font-size: 12px;
+    }
+    .btn-group{
+      .btn{
+        margin-right: 0px;
+        margin-top: 0px;
+      }
+      .btn:focus{
+        outline: none;
+      }
+    }
+  }
+
+
+}
+
+.charts-data{
+  .chart-div{
+    height: 300px;
+
+  }
+}
+
+.common-content{
+  padding: 20px;
+}
+
+.table-ranking{
+  thead{
+    tr{
+      th{
+        font-weight: bold;
+      }
+    }
+  }
+  tbody{
+    tr{
+      td{
+        background: #fff;
+        span.rank-num{
+          width: 30px;
+          text-align: left;
+          display: inline-block;
+        }
+        .strong-font{
+          font-size: 14px;
+          color: green;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.device-list{
+  width: 300px;
+  float: left;
+  position: relative;
+  //padding-top: 2px;
+  .terminal-class{
+    background: #fff;
+    padding: 10px 10px;
+    border-bottom: 2px solid #2aabd2;
+    margin-bottom: 2px;
+    span{
+      color: #2b7dbc;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .form-control{
+      width: 150px;
+      height: 26px;
+      padding: 2px 10px;
+      font-size: 12px;
+    }
+
+  }
+
+
+  .device-box-ul{
+    padding: 5px;
+    //border-top: 1px solid #ccc;
+      li{
+        cursor: -webkit-grab;
+        list-style: none;
+        float: left;
+        padding: 5px;
+        width: 33.3%;
+        text-align: center;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        user-select: none;
+        img{
+          width: 45px;
+          height: 45px;
+          margin: auto;
+          user-select: none;
+        }
+        div{
+          user-select: none;
+          font-size: 12px;
+          text-align: center;
+          margin-top: 4px;
+        }
+      }
+    li:first-child{
+      border-left: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+    }
+    li:nth-child(2),li:nth-child(3){
+      border-top: 1px solid #ccc;
+    }
+    li:nth-child(4n){
+      border-left: 1px solid #ccc;
+    }
+  }
+}
+.device-list:before{
+  background: rgba(238,238,238,0.5);
+  content: "";
+  display: block;
+  width: 302px;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  z-index: -1;
+  border: 1px solid #ccc;
+  border-width: 0 2px 0 0;
+}
+
+.terminal-wrap{
+  padding: 10px;
+  margin-left: 305px;
+  .terminal-box{
+    float: left;
+    padding: 0px;
+    list-style: none;
+
+    border: 1px solid #bbb;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 30%;
+    margin-right: 3%;
+    box-shadow: 0 3px 5px rgba(0,0,0,.5);
+    margin-bottom: 8px;
+    .title-window{
+      border-bottom: 2px solid #ddd;
+      padding: 6px 14px;
+      //text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      span{
+        cursor: pointer;
+      }
+      .remove-plane{
+        cursor: pointer;
+        color:red;
+      }
+    }
+    .terminal-box-ul{
+        height: 250px;
+        overflow: auto;
+      }
+    li{
+      padding: 10px;
+      overflow: hidden;
+      float: left;
+      width: 50%;
+      text-align: center;
+      img{
+        width: 80px;
+        height: 80px;
+        //height: 60%;
+      }
+
+    }
+
+  }
+
+}
+
+.system-set{
+  margin-bottom: 10px;
+
+  .label{
+    width: 100px;
+    text-align: left;
+    display: inline-block;
+    color: #000;
+  }
+  .form-control{
+    padding: 2px 10px;
+    height: 28px;
+    width: 150px;
+  }
+
+}

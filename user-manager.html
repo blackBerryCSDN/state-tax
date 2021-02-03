@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>国税预约后台管理系统</title>
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/siderbar-left.css">
+    <link rel="stylesheet" href="plugins/bootstrap-toastr/toastr.min.css">
+    <link rel="stylesheet" href="assets/css/web.css">
+    <link rel="stylesheet" href="plugins/My97DatePicker/skin/WdatePicker.css">
+
+</head>
+<body class="body-width">
+<div class="header-top-wrap clearfix header">
+    <div class="logo-img">
+        <img src="assets/img/logo.png" alt="" style="height: 50px;">
+    </div>
+    <ul class="header-ul " >
+        <li ><a href="task-manager.html"><i class="glyphicon glyphicon-list"></i> 业务管理</a></li>
+        <li > <a href="evaluate-manager.html"><i class="glyphicon glyphicon-star"></i> 评价统计</a></li>
+        <li class="active"><a href="user-manager.html"><i class="glyphicon glyphicon-user"></i> 人员管理</a></li>
+        <li ><a href="terminal-manager.html"><i class="glyphicon glyphicon-th-large"></i> 调试界面</a></li>
+        <li ><a href="system-manager.html"><i class="glyphicon glyphicon-cog"></i> 系统设置</a></li>
+    </ul>
+    <ul class="nav navbar-nav  pull-right person-info">
+        <!--<li><a href="#">Link</a></li>-->
+        <li class="dropdown ">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员-李元华 <span class="caret"></span></a>
+            <ul class="dropdown-menu pull-right">
+                <li><a href="login.html">注销</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+<div class="main-container">
+    <div class="left-side sidebar">
+        <ul class="nav nav-list">
+            <li title="角色管理"  class=" active">
+                <a href="#" class="">
+                    <i class="fa fa-user-o" style="font-size: 15px;" aria-hidden="true"></i>
+                    <span class="menu-text">角色管理</span>
+                </a>
+            </li>
+            <li title="密码修改" >
+                <a href="#" class="">
+                    <i class="fa fa-lock"></i> 密码修改
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="right-side">
+        <div class="list-plane user-manager">
+            <div class="role-plane ">
+                <div class="plane-title">
+                    <span><i class="fa fa-user-plus"></i> 添加用户</span>
+                </div>
+                <div class="plane-body padding-10">
+                    <div class="form-group">
+                        <label class="label">姓名:</label>
+                        <input type="text" class="form-control" placeholder="请输入用户名">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">密码:</label>
+                        <input type="password" class="form-control" placeholder="请输入密码">
+                        <div class="pass-wrong">密码不能为空</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label">确认密码:</label>
+                        <input type="password" class="form-control" placeholder="请再输入密码">
+                        <div class="pass-wrong">密码不能为空</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label">工号:</label>
+                        <input type="text" class="form-control" placeholder="请输入工号">
+                        <div class="pass-wrong">工号不能为空</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label">设为管理员:</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="setmanager" id="" value="option2" checked> 否
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="setmanager" id="" value="option1" > 是
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="label">窗口号:</label>
+                        <select  class="form-control">
+                            <option value="">请选择</option>
+                            <option value="11">一号窗口</option>
+                            <option value="12">二号窗口</option>
+                            <option value="13">三号窗口</option>
+                            <option value="14">四号窗口</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button style="margin-left: 95px;" type="button" class="btn-primary btn  btn-small">&emsp; <i class="fa fa-plus"></i> 添加 &emsp; </button>
+                    </div>
+                </div>
+            </div>
+            <div class="role-plane">
+                <div class="plane-title">
+                    <span><i class="fa fa-cog"></i> 角色设置</span>
+                    <!--<a class="add-user   "><i class="fa fa-user-plus"></i> 添加用户</a>-->
+                </div>
+                <div class="plane-body">
+                    <div class=""></div>
+                    <table class="table table-responsive table-bordered text-center ">
+                        <thead>
+                        <tr>
+                            <th class="text-center">ID</th>
+                            <th class="text-center">姓名</th>
+                            <th class="text-center">工号</th>
+                            <th class="text-center">窗口号</th>
+                            <th class="text-center" width="500">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>王庆华</td>
+                            <td>0125</td>
+                            <td>一号窗口</td>
+                            <td>
+                                <a href="javascript:setManager()" ><i class="fa fa-user-o" aria-hidden="true"></i> 设为管理员</a> &emsp;|&emsp;
+                                <a href="javascript:editUser()" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 修改 </a> &emsp;|&emsp;
+                                <a href="javascript:stopUser('full','是否停用?')" ><i class="fa fa-stop" aria-hidden="true"></i> 停用 </a>  &emsp;|&emsp;
+                                <a href="javascript:deleteUser()" ><i class="fa  fa-trash"></i> 删除 </a>  
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>周东升</td>
+                            <td>0126</td>
+                            <td>二号窗口</td>
+                            <td>
+                                <a href="javascript:setManager()" ><i class="fa fa-user-o" aria-hidden="true"></i> 设为管理员</a> &emsp;|&emsp;
+                                <a href="javascript:editUser()" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 修改 </a> &emsp;|&emsp;
+                                <a href="javascript:stopUser('full','是否停用?')" ><i class="fa fa-stop" aria-hidden="true"></i> 停用 </a>  &emsp;|&emsp;
+                                <a href="javascript:deleteUser()" ><i class="fa  fa-trash"></i> 删除 </a>  
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>李胜</td>
+                            <td>0130</td>
+                            <td>三号窗口</td>
+                            <td>
+                                <a href="javascript:setManager()" ><i class="fa fa-user-o" aria-hidden="true"></i> 设为管理员</a> &emsp;|&emsp;
+                                <a href="javascript:editUser()" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 修改 </a> &emsp;|&emsp;
+                                <a href="javascript:stopUser('full','是否停用?')" ><i class="fa fa-stop" aria-hidden="true"></i> 停用 </a>  &emsp;|&emsp;
+                                <a href="javascript:deleteUser()" ><i class="fa  fa-trash"></i> 删除 </a>  
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>程煊</td>
+                            <td>0134</td>
+                            <td>四号窗口</td>
+                            <td>
+                                <a href="javascript:setManager()" ><i class="fa fa-user-o" aria-hidden="true"></i> 设为管理员</a> &emsp;|&emsp;
+                                <a href="javascript:editUser()" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 修改 </a> &emsp;|&emsp;
+                                <a href="javascript:stopUser('full','是否停用?')" ><i class="fa fa-stop" aria-hidden="true"></i> 停用 </a>  &emsp;|&emsp;
+                                <a href="javascript:deleteUser()" ><i class="fa  fa-trash"></i> 删除 </a>  
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row page-row">
+                        <div class="col-sm-5">每页<select name="pageSize" class="form-control " >
+                            <option value="10" selected="">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                        </select>条，总共4条，显示1到4
+                        </div>
+                        <div class="col-sm-7">
+                            <ul class="pagination no-margin  pull-right">
+                                <li class="disabled"><span>&lt;</span></li>
+                                <li class="active"><a href="javascript:void(0)" >1</a></li>
+                                <li><a href="javascript:void(0)" >&gt;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div style="display: none;" class="list-plane password-edit ">
+            <div class="role-plane">
+                <div class="plane-title">
+                    <span><i class="fa fa-cog"></i> 修改密码</span>
+                    <!--<a class="add-user   "><i class="fa fa-user-plus"></i> 添加用户</a>-->
+                </div>
+                <div class="plane-body">
+                    <table class="table table-bordered text-center">
+                        <thead>
+                        <tr>
+                            <th class="text-center">用户名</th>
+                            <th class="text-center">是否为管理员</th>
+                            <th class="text-center">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>admin-张贵</td>
+                            <td>是</td>
+                            <td><a href="javascript:editPassword()" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 修改</a></td>
+                        </tr>
+                        <tr>
+                            <td>user-杨勇</td>
+                            <td>否</td>
+                            <td><a href="javascript:editPassword()" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 修改</a></td>
+                        </tr>
+                        <tr>
+                            <td>user-吴曦</td>
+                            <td>否</td>
+                            <td><a href="javascript:editPassword()" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 修改</a></td>
+                        </tr>
+                        <tr>
+                            <td>user-邰南展</td>
+                            <td>否</td>
+                            <td><a href="javascript:editPassword()" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 修改</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="row page-row">
+                        <div class="col-sm-5">每页<select name="pageSize" class="form-control " >
+                            <option value="10" selected="">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                        </select>条，总共4条，显示1到4
+                        </div>
+                        <div class="col-sm-7">
+                            <ul class="pagination no-margin  pull-right">
+                                <li class="disabled"><span>&lt;</span></li>
+                                <li class="active"><a href="javascript:void(0)" >1</a></li>
+                                <li><a href="javascript:void(0)" >&gt;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="plugins/jquery/jquery.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.js"></script>
+<script src="plugins/bootstrap-toastr/toastr.min.js"></script>
+<script src="plugins/bootbox/bootbox.js"></script>
+<script src="plugins/My97DatePicker/WdatePicker.js"></script>
+<script src="assets/js/common.js"></script>
+<script>
+    $(".left-side").on('click','li',function () {
+        var index = $(this).index();
+        $(this).addClass('active').siblings().removeClass('active');
+        $(".list-plane").eq(index).show().siblings().hide();
+    });
+
+    function editUser(){
+        var dialog = st_dialogOpen('修改', 'dialog/edit.html', okFunc,'full');
+        function okFunc(){
+            console.log(1);
+        }
+    }
+    //删除
+    function deleteUser() {
+        bootbox.confirm({
+            size: "small",
+            message:"确定要删除",
+            buttons: {
+                cancel: {
+                    label: '取消',
+                    className: 'btn-default btn-small'
+                },
+                confirm: {
+                    label: '确认',
+                    className: 'btn-primary btn-small'
+                }
+            },
+            callback: function(result){
+
+            }
+        })
+    }
+
+    //停用
+    function stopUser() {
+        bootbox.confirm({
+            size: "small",
+            message:"是否停用",
+            buttons: {
+                cancel: {
+                    label: '取消',
+                    className: 'btn-default btn-small'
+                },
+                confirm: {
+                    label: '确认',
+                    className: 'btn-primary btn-small'
+                }
+            },
+            callback: function(result){
+
+            }
+        })
+    }
+    //设为管理员
+    function setManager() {
+        bootbox.confirm({
+            size: "small",
+            message:"设为管理员",
+            buttons: {
+                cancel: {
+                    label: '取消',
+                    className: 'btn-default btn-small'
+                },
+                confirm: {
+                    label: '确认',
+                    className: 'btn-primary btn-small'
+                }
+            },
+            callback: function(result){
+                toastrOk("已修改为管理员","toast-top-right");
+            }
+        })
+    }
+
+    //修改密码
+    function editPassword() {
+        var dialog = st_dialogOpen('修改', 'dialog/edit-password.html', okFunc,'full');
+        function okFunc(){
+
+
+        }
+    }
+
+
+
+
+
+</script>
+</body>
+</html>
